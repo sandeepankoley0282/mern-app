@@ -33,3 +33,12 @@ mongoose.connect(MONGODB_URI)
 
 // ⚠️ KEY CHANGE: Export app instead of calling app.listen()
 module.exports = app;
+
+
+// For local development
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+}
+
+module.exports = app;
